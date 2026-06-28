@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CanvasWorkspace from '../components/CanvasWorkspace.astro';
+import ControlPanel from '../components/ControlPanel.astro';
+---
+
+<Layout>
+	<header class="h-16 flex items-center justify-between px-6 border-b border-shadow border-border shrink-0 relative z-10 bg-background">
+		<div class="flex items-center gap-3">
+			<div class="w-5 h-5 bg-primary shadow-[0_0_12px_var(--primary)]"></div>
+			<h1 class="text-xl font-semibold tracking-[-0.04em] text-foreground">Pixel Studio</h1>
+		</div>
+		<button id="btn-theme-toggle" class="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors focus-ring" title="Toggle theme">
+			<svg class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+			</svg>
+			<svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+			</svg>
+		</button>
+	</header>
+	
+	<main class="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden relative z-0">
+		<section class="w-full h-[60vh] lg:h-auto lg:flex-1 flex flex-col min-h-0 bg-background lg:overflow-hidden flex-shrink-0">
+			<CanvasWorkspace />
+		</section>
+
+		<aside class="w-full lg:w-[320px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-shadow border-border bg-card lg:overflow-y-auto">
+			<ControlPanel />
+		</aside>
+	</main>
+</Layout>

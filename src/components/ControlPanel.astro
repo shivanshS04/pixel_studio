@@ -1,0 +1,76 @@
+---
+---
+<div class="p-6 h-full flex flex-col gap-8">
+	<div>
+		<h2 class="text-sm font-medium text-foreground mb-1">Export</h2>
+		<p class="text-xs text-muted-foreground mb-4">Download your masterpiece</p>
+		<div class="flex gap-3">
+			<button id="btn-download" class="flex-1 py-2.5 bg-background border-shadow border-border hover:bg-secondary text-sm font-medium text-foreground rounded-md transition-colors focus-ring flex items-center justify-center gap-2">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+				</svg>
+				Save PNG
+			</button>
+			<button id="btn-copy" class="px-4 py-2.5 bg-background border-shadow border-border hover:bg-secondary text-muted-foreground hover:text-foreground rounded-md transition-colors focus-ring" title="Copy to clipboard">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<hr class="border-border" />
+
+	<div>
+		<h2 class="text-sm font-medium text-foreground mb-1">Resolution</h2>
+		<p class="text-xs text-muted-foreground mb-4">Block size (larger is blockier)</p>
+		
+		<div class="flex items-center gap-4">
+			<input type="range" id="input-pixel-size" min="2" max="128" value="16" class="flex-1 h-1.5 bg-secondary rounded-full  outline-none focus-ring cursor-pointer accent-primary" />
+			<span id="label-pixel-size" class="text-xs font-mono text-muted-foreground w-8 text-right">16px</span>
+		</div>
+	</div>
+
+	<div>
+		<h2 class="text-sm font-medium text-foreground mb-1">Color Palette</h2>
+		<p class="text-xs text-muted-foreground mb-4">Restrict available colors</p>
+		
+		<div class="relative">
+			<select id="input-palette" class="w-full appearance-none bg-background border-shadow border-border text-sm text-foreground py-2.5 pl-3 pr-10 rounded-md focus-ring cursor-pointer outline-none">
+				<option value="true-color">True Color (No restrictions)</option>
+				<option value="gameboy">Game Boy (4 Greens)</option>
+				<option value="nes">NES (Classic 8-bit)</option>
+				<option value="cga">CGA (Cyber-punk)</option>
+				<option value="monochrome">Monochrome (B&W)</option>
+			</select>
+			<div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-muted-foreground">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+				</svg>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<h2 class="text-sm font-medium text-foreground mb-1">Adjustments</h2>
+		<p class="text-xs text-muted-foreground mb-4">Pre-process the image</p>
+		
+		<div class="space-y-4">
+			<div>
+				<div class="flex justify-between mb-2">
+					<label class="text-xs text-muted-foreground">Contrast</label>
+					<span id="label-contrast" class="text-xs font-mono text-muted-foreground">100%</span>
+				</div>
+				<input type="range" id="input-contrast" min="0" max="200" value="100" class="w-full h-1.5 bg-secondary rounded-full  outline-none focus-ring cursor-pointer accent-primary" />
+			</div>
+			
+			<div>
+				<div class="flex justify-between mb-2">
+					<label class="text-xs text-muted-foreground">Saturation</label>
+					<span id="label-saturation" class="text-xs font-mono text-muted-foreground">100%</span>
+				</div>
+				<input type="range" id="input-saturation" min="0" max="200" value="100" class="w-full h-1.5 bg-secondary rounded-full  outline-none focus-ring cursor-pointer accent-primary" />
+			</div>
+		</div>
+	</div>
+</div>

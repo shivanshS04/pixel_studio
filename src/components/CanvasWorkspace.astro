@@ -1,0 +1,50 @@
+---
+---
+<div class="flex-1 flex flex-col items-center justify-center p-6 lg:p-10 w-full h-full relative" id="workspace-container">
+	<!-- Drag & Drop Zone overlay -->
+	<div id="drop-zone" class="absolute inset-6 border-2 border-dashed border-border rounded-xl flex flex-col items-center justify-center bg-background/50 backdrop-blur-sm z-20 transition-all duration-200 opacity-100 data-[has-image=true]:opacity-0 data-[has-image=true]:pointer-events-none">
+		<div class="w-16 h-16 mb-4 rounded-full bg-card border-shadow flex items-center justify-center">
+			<svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+			</svg>
+		</div>
+		<h2 class="text-xl font-medium text-foreground mb-2">Upload Image</h2>
+		<p class="text-sm text-muted-foreground mb-6">Drag and drop or click to browse (PNG, JPEG, WebP)</p>
+		<label class="px-6 py-3 bg-transparent border-shadow border-border rounded-md text-muted-foreground hover:bg-card-hover hover:text-foreground transition-colors cursor-pointer focus-within:focus-ring">
+			<span>Select File</span>
+			<input type="file" id="file-input" class="sr-only" accept="image/png, image/jpeg, image/webp" />
+		</label>
+	</div>
+
+	<!-- Canvas Container (hidden until image is loaded) -->
+	<div id="canvas-container" class="w-full h-full max-w-full max-h-full flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 pointer-events-none data-[has-image=true]:opacity-100 data-[has-image=true]:pointer-events-auto min-h-0">
+		
+		<!-- The canvases with comparison slider -->
+		<div class="relative w-full h-full min-h-0 border border-border shadow-xl overflow-hidden bg-card flex items-center justify-center" id="canvas-wrapper">
+			
+			<canvas id="display-canvas" class="max-w-full max-h-full object-contain pointer-events-none"></canvas>
+			
+			<div id="original-clip-wrapper" class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none" style="clip-path: inset(0 50% 0 0);">
+				<canvas id="original-canvas" class="max-w-full max-h-full object-contain"></canvas>
+			</div>
+			
+			<!-- Slider -->
+			<input type="range" id="comparison-slider" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0" />
+			
+			<!-- Slider Handle visual -->
+			<div id="comparison-handle" class="absolute top-0 bottom-0 w-[2px] bg-primary z-20 pointer-events-none" style="left: 50%; transform: translateX(-50%);">
+				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-card rounded-full border-[2px] border-primary flex items-center justify-center shadow-lg">
+					<svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l4-4 4 4m0 6l-4 4-4-4" transform="rotate(90 12 12)" />
+					</svg>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	import { initWorkspace } from '../scripts/workspace';
+	initWorkspace();
+</script>
