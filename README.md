@@ -1,46 +1,38 @@
-# Astro Starter Kit: Basics
+# 👾 Pixel Studio
 
-```sh
-npm create astro@latest -- --template basics
+Hey there! 👋 Welcome to **Pixel Studio**, a little weekend side project I put together just for fun. 
+
+I've always loved retro gaming aesthetics and wanted a quick, zero-backend way to turn regular images into pixel art directly in the browser. So, I built this tiny tool using **Astro** (for speed and great DX), **Tailwind v4** with **Shadcn UI** (for a sleek, cinematic interface), and vanilla **HTML5 Canvas** (for blazing fast image processing on the client).
+
+No servers, no uploads, no fuss. Just drop an image in and start tweaking sliders until it looks like it belongs on a Game Boy or an NES!
+
+## ✨ Features
+*   **Fully Client-Side:** Everything happens in your browser using pure JavaScript and Canvas. Your images never leave your machine!
+*   **Real-time Scrubber:** A slick drag-to-compare slider to see your before/after changes.
+*   **Retro Palettes:** Restrict colors to match classic consoles (Game Boy, NES, CGA, Monochrome).
+*   **Dark/Light Mode:** Because what's a side project without a nice theme toggle?
+
+## 🚀 How to run it locally
+
+If you want to play around with the code or run it on your own machine, it's super easy to get started.
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/your-username/pixel-studio.git
+cd pixel-studio
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+### 2. Install dependencies
+Make sure you have Node.js installed, then run:
+```bash
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### 3. Spin up the dev server
+```bash
+npm run dev
+```
+That's it! Open your browser to `http://localhost:4321` and start pixelating. 
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+*Feel free to fork it, break it, or use it for your own fun projects!*
